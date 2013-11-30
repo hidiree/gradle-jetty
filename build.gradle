@@ -3,3 +3,6 @@ apply plugin: 'war'
 apply plugin: 'eclipse'
 
 apply from: file('gradle/misc.gradle')
+
+sourceCompatibility = targetCompatibility = 1.7
+tasks.withType(AbstractCompile) each { it.options.encoding = 'UTF-8' }
