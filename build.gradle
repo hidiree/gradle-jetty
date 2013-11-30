@@ -1,11 +1,4 @@
 apply plugin: 'java'
 apply plugin: 'war'
 
-task wrapper(type: Wrapper) {
-    gradleVersion = 1.6
-}
-
-task initdirs << {
-    sourceSets*.allSource.srcDirs.flatten()*.mkdirs()
-    webAppDir.mkdirs()
-}
+apply from: file('gradle/misc.gradle')
