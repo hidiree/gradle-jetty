@@ -10,3 +10,4 @@ tasks.withType(AbstractCompile) each { it.options.encoding = 'UTF-8' }
 repositories {
     mavenCentral()
     mavenRepo(url: 'http://repository.jboss.org/nexus/content/groups/public')
+}
