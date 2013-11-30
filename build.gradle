@@ -11,3 +11,15 @@ repositories {
     mavenCentral()
     mavenRepo(url: 'http://repository.jboss.org/nexus/content/groups/public')
 }
+
+dependencies {
+    def resteasy = '3.0-beta-4'
+    compile 'org.slf4j:slf4j-simple:1.6.1'
+    ['jaxrs', 'jackson-provider'].each {
+        compile ("org.jboss.resteasy:resteasy-$it:$resteasy") { exclude group: 'org.slf4j' }
+    }
+    providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+    testCompile 'junit:junit:4.+'
+    testCompile "org.jboss.resteasy:resteasy-client:$resteasy"
+    testCompile ("org.jboss.resteasy:tjws:$resteasy") { exclude group: 'javax.servlet' }
+}
